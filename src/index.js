@@ -1,14 +1,22 @@
 const express = require('express')
+const path = require('path')
 const morgan = require('morgan')
-const exphbs = require('express-handlebars');
+const exphbs = require('express-handlebars')
 const app = express()
 //HTTP logger
 app.use(morgan('combined'))
 //Template engine
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
+app.engine('hbs', exphbs({
+    extname:'.hbs'
+}))
+
+app.set('view engine','hbs')
+
+app.set('views', path.join(__dirname, 'resources/views'))
+
 app.get('/', function (req, res) {
-  res.send(`<h1>Hello world</h1>`)
+  res.render('home')
+
 })
- 
+
 app.listen(8080)
