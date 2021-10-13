@@ -9,6 +9,7 @@ app.use(morgan('combined'))
 app.engine('hbs', exphbs({
     extname:'.hbs'
 }))
+app.use(express.static(path.join(__dirname,'public')))
 
 app.set('view engine','hbs')
 
