@@ -15,7 +15,7 @@ app.set('view engine','hbs')
 app.set('views', path.join(__dirname, 'resources/views'))
 
 app.get('/', function (req, res) {
-  res.render('home')
+    res.render('home')
 
 })
 
