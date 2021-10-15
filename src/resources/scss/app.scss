@@ -1,5 +1,13 @@
 @import 'variables';
+*{
+    text-transform: uppercase;
+}
 
 h1 {
     color:$current-color;
+}
+.container{
+    margin: 0;
+    padding: 0;
+    
 }
