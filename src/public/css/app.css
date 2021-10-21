@@ -1,9 +1,9 @@
-* {
-  text-transform: uppercase; }
-
 h1 {
   color: blue; }
 
 .container {
   margin: 0;
   padding: 0; }
+
+.search-input {
+  text-transform: capitalize; }
