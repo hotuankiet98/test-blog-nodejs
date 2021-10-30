@@ -1,14 +1,12 @@
 @import 'variables';
 
-
 h1 {
-    color:$current-color;
+    color: $current-color;
 }
-.container{
+.container {
     margin: 0;
     padding: 0;
-    
 }
-.search-input{
+.search-input {
     text-transform: capitalize;
 }

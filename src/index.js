@@ -1,30 +1,37 @@
-const express = require('express')
-const path = require('path')
-const morgan = require('morgan')
-const exphbs = require('express-handlebars')
-const app = express()
-const port=8080
+const express = require('express');
+const path = require('path');
+const morgan = require('morgan');
+const exphbs = require('express-handlebars');
+const app = express();
+const port = 8080;
 
-const route= require('./routes')
+const route = require('./routes');
 //HTTP logger
-app.use(morgan('combined'))
+app.use(morgan('combined'));
 //Template engine
-app.engine('hbs', exphbs({
-    extname:'.hbs'
-}))
+app.engine(
+    'hbs',
+    exphbs({
+        extname: '.hbs',
+    }),
+);
 //static file
-app.use(express.static(path.join(__dirname,'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 //Tao middleware de lay du lieu POST method
-app.use(express.urlencoded({
-    extended:true
-}))
-app.use(express.json())
+app.use(
+    express.urlencoded({
+        extended: true,
+    }),
+);
+app.use(express.json());
 
-app.set('view engine','hbs')
+app.set('view engine', 'hbs');
 
-app.set('views', path.join(__dirname, 'resources/views'))
+app.set('views', path.join(__dirname, 'resources/views'));
 
 //route init
-route(app)
+route(app);
 
-app.listen(port,()=>console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port, () =>
+    console.log(`Example app listening at http://localhost:${port}`),
+);
