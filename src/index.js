@@ -6,6 +6,9 @@ const app = express();
 const port = 8080;
 
 const route = require('./routes');
+const db = require('./config/db');
+//Connect DB
+db.connect();
 //HTTP logger
 app.use(morgan('combined'));
 //Template engine
