@@ -13,5 +13,21 @@ class CoursesController {
             })
             .catch(next);
     }
+
+    //GET /course/create
+    create(req, res, next) {
+        res.render('courses/create');
+    }
+    //POST /course/create
+    store(req, res, next) {
+        // res.json(req.body)
+        const formData = req.body;
+        formData.image = `https://i.ytimg.com/vi_webp/${req.body.videoId}/maxresdefault.webp`;
+        const course = new Course(formData);
+        course
+            .save()
+            .then(() => res.redirect('/'))
+            .catch((err) => {});
+    }
 }
 module.exports = new CoursesController();
