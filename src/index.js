@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
+var methodOverride = require('method-override');
 const app = express();
 const port = 8080;
 
@@ -16,6 +17,9 @@ app.engine(
     'hbs',
     exphbs({
         extname: '.hbs',
+        helpers: {
+            sum: (a, b) => a + b,
+        },
     }),
 );
 //static file
@@ -27,6 +31,8 @@ app.use(
     }),
 );
 app.use(express.json());
+//xu dung methodoverride de xu dung cac phuong thuc
+app.use(methodOverride('_method'));
 
 app.set('view engine', 'hbs');
 
