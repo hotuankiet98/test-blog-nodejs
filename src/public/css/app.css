@@ -7,7 +7,8 @@ h1 {
 .card-course-item {
   margin-top: 24px; }
 
-.card-text, .card-title {
+.card-text,
+.card-title {
   display: -webkit-box;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
@@ -38,3 +39,6 @@ h1 {
 
 .dropdown-divider {
   margin: 0; }
+
+.btn-link {
+  text-decoration: none; }

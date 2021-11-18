@@ -2,7 +2,7 @@ const Course = require('../models/Course');
 const { mongooseToObject } = require('../../util/mongoose');
 
 class CoursesController {
-    //GET /course/:slug
+    //[GET] /course/:slug
     show(req, res, next) {
         // res.send('COURSES DETAIL !!! - '+req.params.slug);
         Course.findOne({ slug: req.params.slug })
@@ -14,7 +14,7 @@ class CoursesController {
             .catch(next);
     }
 
-    //GET /course/create
+    //[GET] /course/create
     create(req, res, next) {
         res.render('courses/create');
     }
@@ -29,7 +29,7 @@ class CoursesController {
             .then(() => res.redirect('/'))
             .catch((err) => {});
     }
-    //GET /:id/edit
+    //[GET] /:id/edit
     edit(req, res, next) {
         Course.findById(req.params.id)
             .then((course) =>
@@ -39,10 +39,16 @@ class CoursesController {
             )
             .catch(next);
     }
-    //PUT /course/:id
+    //[PUT] /course/:id
     update(req, res, next) {
         Course.updateOne({ _id: req.params.id }, req.body)
             .then(() => res.redirect('/me/stored/courses'))
+            .catch(next);
+    }
+    //[DELETE] /courses/:id
+    delete(req, res, next) {
+        Course.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
             .catch(next);
     }
 }
