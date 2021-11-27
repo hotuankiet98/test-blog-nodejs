@@ -59,7 +59,7 @@ class CoursesController {
     }
     //[PATCH] /courses/:id/restore
     //rs:restore
-    rs(req, res, next) {
+    restore(req, res, next) {
         Course.restore({ _id: req.params.id })
             .then(() => res.redirect('back'))
             .catch(next);
