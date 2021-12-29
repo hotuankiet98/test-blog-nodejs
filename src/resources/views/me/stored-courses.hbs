@@ -22,10 +22,20 @@
     <table class="table">
       <thead>
           <tr>
+              <th scope="col"></th>
               <th scope="col">#</th>
-              <th scope="col">Tên khóa học</th>
-              <th scope="col">Trình độ</th>
-              <th scope="col">Thời gian tạo</th>
+              <th scope="col">
+                Tên khóa học
+                 {{{sortable 'name' _sort}}}
+              </th>
+              <th scope="col">
+                Trình độ
+                  {{{sortable 'level' _sort}}}
+              </th>
+              <th scope="col">
+                Thời gian 
+                  {{{sortable 'createdAt' _sort}}}
+              </th>
           </tr>
       </thead>
       <tbody>
