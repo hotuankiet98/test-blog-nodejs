@@ -41,7 +41,9 @@ class CoursesController {
     }
     //[PUT] /course/:id
     update(req, res, next) {
-        Course.updateOne({ _id: req.params.id }, req.body)
+        const formDataUpdate = req.body;
+        formDataUpdate.image = `https://i.ytimg.com/vi_webp/${req.body.videoId}/maxresdefault.webp`;
+        Course.updateOne({ _id: req.params.id }, formDataUpdate)
             .then(() => res.redirect('/me/stored/courses'))
             .catch(next);
     }
